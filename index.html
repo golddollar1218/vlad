@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Robinhood Bull</title>
+    <title>The Robinhood Bull — VLAD</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,6 +15,7 @@
   </head>
   <body>
     <div class="ambient-glow" aria-hidden="true"></div>
+    <canvas id="leafCanvas" class="leaf-canvas" aria-hidden="true"></canvas>
 
     <nav class="navbar" id="navbar">
       <div class="nav-inner">
@@ -23,10 +24,10 @@
           <span class="nav-title">VLAD</span>
         </a>
         <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#tokenomics">Tokenomics</a>
-          <a href="#community">Community</a>
-          <a href="#chart">Chart</a>
+          <a href="#about" data-section="about">About</a>
+          <a href="#tokenomics" data-section="tokenomics">Tokenomics</a>
+          <a href="#community" data-section="community">Community</a>
+          <a href="#chart" data-section="chart">Chart</a>
         </div>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
           <span></span>
@@ -37,183 +38,238 @@
 
     <main>
       <section class="hero">
-        <div class="hero-banner">
-          <img src="asset/banner.png" alt="The Robinhood Bull Banner" class="banner-img" />
+        <div class="hero-bg-layer hero-bg-forest" data-parallax="0.15"></div>
+        <div class="hero-banner" data-parallax="0.08">
+          <img src="asset/banner.png" alt="" class="banner-img" />
           <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
+          <div class="hero-logo-wrap">
+            <img src="asset/logo.png" alt="The Robinhood Bull" class="hero-logo" />
+          </div>
+          <span class="hero-eyebrow">Sherwood Forest · On-Chain</span>
           <h1 class="hero-title">The Robinhood Bull</h1>
           <p class="hero-subtitle">
             The legendary archer of the forest — where meme culture meets
             medieval lore on the blockchain.
           </p>
+          <div class="hero-pills">
+            <span class="pill">0% Tax</span>
+            <span class="pill">LP Burned</span>
+            <span class="pill">Community Driven</span>
+          </div>
           <div class="hero-actions">
-            <a href="#community" class="btn btn-primary">Join Community</a>
+            <a href="#community" class="btn btn-primary">
+              <span>Join Community</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
             <a href="#chart" class="btn btn-secondary">View Chart</a>
           </div>
         </div>
-      </section>
-
-      <section class="section" id="about">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">The Legend</span>
-          <h2 class="section-title">About The Robinhood Bull</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about-card reveal">
-            <p class="about-text">
-              <strong>VLAD</strong> is a community-driven meme token
-              inspired by the timeless legend of Robin
-              Hood. Born from internet culture and forest folklore, it captures
-              the spirit of the underdog — calm, determined, and always aiming
-              true.
-            </p>
-          </div>
-          <div class="about-card reveal">
-            <p class="about-text">
-              Created by <strong>@vladtenev </strong> on X, VLAD unites
-              degens and dreamers under one green banner. No hype, no noise —
-              just a steady hand on the bow and a community that believes in
-              the journey.
-            </p>
-          </div>
+        <div class="hero-scroll-hint" aria-hidden="true">
+          <span>Scroll</span>
+          <div class="scroll-line"></div>
         </div>
       </section>
 
-      <section class="section" id="tokenomics">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">Economics</span>
-          <h2 class="section-title">Tokenomics</h2>
-        </div>
-
-        <div class="tokenomics-metrics">
-          <div class="token-metric reveal">
-            <span class="token-metric-label">Total Supply</span>
-            <span class="token-metric-value">1,000,000,000</span>
-            <span class="token-metric-note">$VLAD</span>
+      <section class="section section-about" id="about">
+        <div class="section-bg" style="--section-bg: url('asset/bg-about.png')"></div>
+        <div class="section-inner">
+          <div class="section-header reveal">
+            <span class="section-eyebrow">The Legend</span>
+            <h2 class="section-title">About The Robinhood Bull</h2>
+            <p class="section-desc">Born in the forest, built for the people.</p>
           </div>
-          <div class="token-metric reveal">
-            <span class="token-metric-label">Buy / Sell Tax</span>
-            <span class="token-metric-value">0% / 0%</span>
-            <span class="token-metric-note">No hidden fees</span>
-          </div>
-          <div class="token-metric reveal">
-            <span class="token-metric-label">Liquidity</span>
-            <span class="token-metric-value">Burned</span>
-            <span class="token-metric-note">LP permanently removed</span>
+          <div class="about-grid">
+            <div class="about-card reveal" data-delay="0">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <p class="about-text">
+                <strong>VLAD</strong> is a community-driven meme token
+                inspired by the timeless legend of Robin Hood. Born from internet
+                culture and forest folklore, it captures the spirit of the
+                underdog — calm, determined, and always aiming true.
+              </p>
+            </div>
+            <div class="about-card reveal" data-delay="1">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <p class="about-text">
+                Created by <strong>@vladtenev</strong> on X, VLAD unites
+                degens and dreamers under one green banner. No hype, no noise —
+                just a steady hand on the bow and a community that believes in
+                the journey.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="community">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">Connect</span>
-          <h2 class="section-title">Join the Community</h2>
+      <section class="section section-tokenomics" id="tokenomics">
+        <div class="section-bg" style="--section-bg: url('asset/bg-tokenomics.png')"></div>
+        <div class="section-inner">
+          <div class="section-header reveal">
+            <span class="section-eyebrow">Economics</span>
+            <h2 class="section-title">Tokenomics</h2>
+            <p class="section-desc">Simple, transparent, and fair — just like the legend.</p>
+          </div>
+
+          <div class="tokenomics-metrics">
+            <div class="token-metric reveal" data-delay="0">
+              <div class="metric-ring">
+                <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" stroke-width="2" opacity="0.15"/><circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="226" stroke-dashoffset="0" class="ring-fill"/></svg>
+                <span class="metric-icon">∞</span>
+              </div>
+              <span class="token-metric-label">Total Supply</span>
+              <span class="token-metric-value">1,000,000,000</span>
+              <span class="token-metric-note">$VLAD</span>
+            </div>
+            <div class="token-metric reveal" data-delay="1">
+              <div class="metric-ring">
+                <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" stroke-width="2" opacity="0.15"/><circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="226" stroke-dashoffset="0" class="ring-fill"/></svg>
+                <span class="metric-icon">0%</span>
+              </div>
+              <span class="token-metric-label">Buy / Sell Tax</span>
+              <span class="token-metric-value">0% / 0%</span>
+              <span class="token-metric-note">No hidden fees</span>
+            </div>
+            <div class="token-metric reveal" data-delay="2">
+              <div class="metric-ring">
+                <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" stroke-width="2" opacity="0.15"/><circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="226" stroke-dashoffset="113" class="ring-fill ring-burned"/></svg>
+                <span class="metric-icon">🔥</span>
+              </div>
+              <span class="token-metric-label">Liquidity</span>
+              <span class="token-metric-value">Burned</span>
+              <span class="token-metric-note">LP permanently removed</span>
+            </div>
+          </div>
         </div>
-        <div class="social-grid">
-          <a
-            href="https://t.me/VladBullTG"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-card reveal"
-            aria-label="Telegram"
-          >
-            <div class="social-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.121.099.155.232.171.326.016.094.036.308.02.475z"
-                />
+      </section>
+
+      <section class="section section-community" id="community">
+        <div class="section-bg" style="--section-bg: url('asset/bg-community.png')"></div>
+        <div class="section-inner">
+          <div class="section-header reveal">
+            <span class="section-eyebrow">Connect</span>
+            <h2 class="section-title">Join the Community</h2>
+            <p class="section-desc">Rally with fellow archers in the forest.</p>
+          </div>
+          <div class="social-grid">
+            <a
+              href="https://t.me/VladBullTG"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-card reveal"
+              data-delay="0"
+              aria-label="Telegram"
+            >
+              <div class="social-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.121.099.155.232.171.326.016.094.036.308.02.475z"
+                  />
+                </svg>
+              </div>
+              <div class="social-info">
+                <span class="social-name">Telegram</span>
+                <span class="social-desc">Chat with the community</span>
+              </div>
+              <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
-            </div>
-            <div class="social-info">
-              <span class="social-name">Telegram</span>
-              <span class="social-desc">Chat with the community</span>
-            </div>
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a
-            href="https://x.com/VladBull_X"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-card reveal"
-            aria-label="X (Twitter)"
-          >
-            <div class="social-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                />
+            </a>
+            <a
+              href="https://x.com/VladBull_X"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-card reveal"
+              data-delay="1"
+              aria-label="X (Twitter)"
+            >
+              <div class="social-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </div>
+              <div class="social-info">
+                <span class="social-name">X</span>
+                <span class="social-desc">Follow for updates</span>
+              </div>
+              <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
-            </div>
-            <div class="social-info">
-              <span class="social-name">X</span>
-              <span class="social-desc">Follow for updates</span>
-            </div>
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a
-            href="https://dexscreener.com/robinhood/0x572817b56b428731cdddec37938c05579d516285"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-card reveal"
-            aria-label="DexScreener"
-          >
-            <div class="social-icon dex-icon-wrap">
-              <img src="dexscreener.webp" alt="" class="dex-icon" />
-            </div>
-            <div class="social-info">
-              <span class="social-name">DexScreener</span>
-              <span class="social-desc">Live price & analytics</span>
-            </div>
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+            </a>
+            <a
+              href="https://dexscreener.com/robinhood/0x572817b56b428731cdddec37938c05579d516285"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-card reveal"
+              data-delay="2"
+              aria-label="DexScreener"
+            >
+              <div class="social-icon dex-icon-wrap">
+                <img src="dexscreener.webp" alt="" class="dex-icon" />
+              </div>
+              <div class="social-info">
+                <span class="social-name">DexScreener</span>
+                <span class="social-desc">Live price & analytics</span>
+              </div>
+              <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
       <section class="section ca-section">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">Token</span>
-          <h2 class="section-title">Contract Address</h2>
-        </div>
-        <div class="ca-card reveal">
-          <div class="ca-input-wrap">
-            <input
-              type="text"
-              id="caInput"
-              value="0x572817b56b428731cdddec37938c05579d516285"
-              readonly
-              class="ca-input"
-              aria-label="Contract address"
-            />
-            <button id="copyBtn" class="copy-btn" type="button">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg>
-              <span id="copyText">Copy</span>
-            </button>
+        <div class="section-inner">
+          <div class="section-header reveal">
+            <span class="section-eyebrow">Token</span>
+            <h2 class="section-title">Contract Address</h2>
+            <p class="section-desc">Copy and verify before you trade.</p>
           </div>
-          <p class="ca-hint">Always verify the contract address before trading.</p>
+          <div class="ca-card reveal">
+            <div class="ca-input-wrap">
+              <input
+                type="text"
+                id="caInput"
+                value="0x572817b56b428731cdddec37938c05579d516285"
+                readonly
+                class="ca-input"
+                aria-label="Contract address"
+              />
+              <button id="copyBtn" class="copy-btn" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span id="copyText">Copy</span>
+              </button>
+            </div>
+            <p class="ca-hint">Always verify the contract address before trading.</p>
+          </div>
         </div>
       </section>
 
       <section class="section chart-section" id="chart">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">Markets</span>
-          <h2 class="section-title">Live Chart</h2>
-        </div>
-        <div class="chart-card reveal">
-          <iframe
-            src="https://dexscreener.com/robinhood/0x572817b56b428731cdddec37938c05579d516285?embed=1&theme=dark&trades=0&info=0"
-            class="dex-iframe"
-            title="DEXScreener Chart"
-          ></iframe>
+        <div class="section-inner">
+          <div class="section-header reveal">
+            <span class="section-eyebrow">Markets</span>
+            <h2 class="section-title">Live Chart</h2>
+            <p class="section-desc">Track $VLAD in real time.</p>
+          </div>
+          <div class="chart-card reveal">
+            <iframe
+              src="https://dexscreener.com/robinhood/0x572817b56b428731cdddec37938c05579d516285?embed=1&theme=dark&trades=0&info=0"
+              class="dex-iframe"
+              title="DEXScreener Chart"
+            ></iframe>
+          </div>
         </div>
       </section>
     </main>
@@ -223,6 +279,13 @@
         <div class="footer-brand">
           <img src="asset/logo.png" alt="The Robinhood Bull" class="footer-logo" />
           <span>The Robinhood Bull</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://t.me/VladBullTG" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <span class="footer-dot">·</span>
+          <a href="https://x.com/VladBull_X" target="_blank" rel="noopener noreferrer">X</a>
+          <span class="footer-dot">·</span>
+          <a href="#chart">Chart</a>
         </div>
         <p class="footer-copy">&copy; 2026 The Robinhood Bull. All rights reserved.</p>
         <p class="footer-disclaimer">
